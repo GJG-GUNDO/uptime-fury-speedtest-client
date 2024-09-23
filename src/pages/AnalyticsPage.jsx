@@ -436,19 +436,36 @@ const AnalyticsPage = () => {
 			</main>
 			<style>
 				{`
-    @keyframes moveRabbit {
-      0% {
-        left: 0;
-      }
-      100% {
-        left: 85%;
-      }
-    }
+    @keyframes moveRabbitSmall {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 70%;
+  }
+}
 
-    .animate-rabbit {
-      position: absolute;
-      animation: moveRabbit 10s linear infinite; /* Change 'forwards' to 'infinite' */
-    }
+@keyframes moveRabbitLarge {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 90%;
+  }
+}
+
+.animate-rabbit {
+  position: absolute;
+  animation: moveRabbitSmall 10s linear infinite;
+}
+
+/* Media query for large screens */
+@media (min-width: 1024px) {
+  .animate-rabbit {
+    animation: moveRabbitLarge 10s linear infinite;
+  }
+}
+
   `}
 			</style>
 			<Footer />

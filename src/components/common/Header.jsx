@@ -6,9 +6,9 @@ const Header = ({ title }) => {
 			<div className='flex items-center justify-between max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8'>
 				<div className='flex items-center'>
 					<img src={companyLogo} alt="Company Logo" className='h-14 mr-4' /> {/* Adjust size as needed */}
-					<h1 className='text-2xl font-semibold text-gray-100'>{title}</h1>
+					<h1 className='lg:text-2xl  sm:text-xl font-semibold text-gray-100'>{title}</h1>
 				</div>
-				<a href="/" className='text-lg font-medium text-gray-100 hover:text-white'>
+				<a href="/" className='lg:text-lg sm:text-md font-medium text-gray-100 hover:text-white'>
 					Home
 				</a>
 			</div>
