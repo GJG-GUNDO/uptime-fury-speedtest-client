@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "../components/common/Header";
 import OverviewCards from "../components/analytics/OverviewCards";
+import OverviewCards2 from "../components/analytics/OverviewCards2";
 import DownloadTable from '../components/analytics/DownloadTable';
 import { FaDownload, FaUpload, FaSignal, FaBolt, FaWifi, FaDesktop, FaMicrochip, FaGamepad, FaTv, FaHeadphones } from 'react-icons/fa'; // Import icons from react-icons
 import SpeedTest from '@cloudflare/speedtest';
@@ -275,6 +276,10 @@ const AnalyticsPage = () => {
 			change: 0.0,
 			icon: FaMicrochip
 		},
+	];
+
+
+	const unitstData = [
 		...(results.scores ? [
 			{
 				name: "Gaming Classification",
@@ -382,7 +387,15 @@ const AnalyticsPage = () => {
 				{/* Show results after the animation */}
 				{showResults && (
 					<>
+					<h2 className="text-2xl font-bold mb-4">Speed Test Overview</h2>
+					<hr className="mb-4 pb-4" />
 						<OverviewCards speedTestData={speedTestData} />
+
+						<h2 className="text-2xl font-bold mb-4">Speed Scores</h2>
+					<hr className="mb-4 pb-4" />
+						<OverviewCards2 speedTestData={unitstData} />
+						<h2 className="text-2xl font-bold mb-4">Download Metrics</h2>
+							<hr className="mb-4 pb-4" />
 						<div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4'>
 							{DownloadmetricsData.map((metric, index) => (
 								<section key={index}>
@@ -396,19 +409,27 @@ const AnalyticsPage = () => {
 									/>
 								</section>
 							))}
-							{UploadmetricsData.map((metric, index) => (
-								<section key={index}>
-									<DownloadTable
-										data={metric.data}
-										average={metric.average}
-										max={metric.max}
-										min={metric.min}
-										dataSize={metric.dataSize}
-										title={metric.title}
-									/>
-								</section>
-							))}
 						</div>
+
+						<div>
+							<h2 className="text-2xl font-bold mb-4">Upload Metrics</h2>
+							<hr className="mb-4 pb-4" />
+							<div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4'>
+								{UploadmetricsData.map((metric, index) => (
+									<section key={index}>
+										<DownloadTable
+											data={metric.data}
+											average={metric.average}
+											max={metric.max}
+											min={metric.min}
+											dataSize={metric.dataSize}
+											title={metric.title}
+										/>
+									</section>
+								))}
+							</div>
+						</div>
+
 						{/* <AIPoweredInsights /> */}
 					</>
 				)}
