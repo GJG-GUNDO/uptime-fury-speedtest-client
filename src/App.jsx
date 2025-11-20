@@ -386,8 +386,8 @@ export default function SpeedTestApp() {
                             <div className="text-white font-medium">Auto-Detect (Edge)</div>
                         </div>
                         <div>
-                            <div className="text-slate-500 uppercase mb-1">Client IP</div>
-                            <div className="text-white font-medium blur-[2px] hover:blur-none transition-all cursor-pointer">192.168.X.X</div>
+                            <div className="text-slate-500 uppercase mb-1">Server</div>
+                            <div className="text-white font-mediumtransition-all cursor-pointer">CLOUDFLARE</div>
                         </div>
                     </div>
                 </Card>
